@@ -38,8 +38,6 @@ typedef struct instruction_s
 
 extern int ARG;
 int main(int argc, char **argv);
-int is_int(char *str);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
 instruction_t *get_function(char *line);
+void pint(stack_t **stack, unsigned int line_number);
 #endif
