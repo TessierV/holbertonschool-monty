@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 		perror("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file_in = fopen(argv[1], "r");
+	file_in = fopen(argv[2], "r");
 	if (!file_in)
 	{
 		fprintf(stdout,"Error: Can't open file %s\n", argv[1]);
@@ -46,10 +46,8 @@ instruction_t *get_function(char *line)
 
 	if (func->opcode)
 	{
-		if (strcmp(func->opcode, "push") == 0)
-			func->f = push;
 		if (strcmp(func->opcode, "pall") == 0)
-			func->f = pall;
+			func->f = _pall;
 	}
 	return (func);
 }
