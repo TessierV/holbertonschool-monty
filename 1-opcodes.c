@@ -1,12 +1,13 @@
 #include "monty.h"
 
 /**
- * pint - print the value at the top of the stack
+ * _pint - print the value at the top of the stack
+ *
  * @stack: the stack
  * @line_number: the line number
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -19,9 +20,8 @@ void pint(stack_t **stack, unsigned int line_number)
 /**
  * _pall - print all values
  *
- *@stack: head stack 
- * 
- *@line_number: current line number
+ * @stack: head stack 
+ * @line_number: current line number
  */
 
 void _pall(stack_t **stack, unsigned int line_number)
