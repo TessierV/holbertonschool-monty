@@ -57,9 +57,9 @@ instruction_t *get_function(char *line)
 		/*if (strcmp(func->opcode, "swap") == 0)
 			func->f = _swap;
 		if (strcmp(func->opcode, "add") == 0)
-			func->f = _add;
+			func->f = _add;*/
 		if (strcmp(func->opcode, "nop") == 0)
-			func->f = _nop;*/
+			func->f = _nop;
 	}
 	return (func);
 }
