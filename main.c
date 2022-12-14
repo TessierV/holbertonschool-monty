@@ -1,4 +1,5 @@
 #include "monty.h"
+int ARG = 1;
 /**
  * main - main function
  * @argc: int
@@ -16,23 +17,24 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		fprintf(stdout, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file_in = fopen(argv[2], "r");
-	if (!file_in)
+	file_in = fopen(argv[1], "r");
+	if (file_in == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &linesize_t, file_in) != -1)
 	{
 		line_number++;
 		func = get_function(line);
-		func->f(&stack, line_number);
-		if (!func)
+		if (func->f)
+			func->f(&stack, line_number);
+		else
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, func->opcode);
+			fprintf(stdout, "L%d: unknown instruction %s\n", line_number, func->opcode);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -51,12 +53,17 @@ instruction_t *get_function(char *line)
 
 	opcode = strtok(line, " \n\t\r");
 	func = malloc(sizeof(*func));
+	if (func == NULL)
+	{
+		fprintf(stdout, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	func->opcode = opcode;
-
+	func->f = NULL;
 	if (func->opcode)
 	{
-		/*if (strcmp(func->opcode, "push") == 0)*/
-			/*func->f = _push;*/
+		if (strcmp(func->opcode, "push") == 0)
+			func->f = _push;
 		if (strcmp(func->opcode, "pall") == 0)
 			func->f = _pall;
 		if (strcmp(func->opcode, "pint") == 0)
