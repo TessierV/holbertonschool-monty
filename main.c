@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	file_in = fopen(argv[1], "r");
-	if (!file_in == NULL)
+	if (file_in == NULL)
 	{
 		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
