@@ -1,5 +1,19 @@
 #include "monty.h"
+void free_t(stack_t *stack)
+{
+	stack_t *next;
 
+	if (!stack)
+		return;
+
+	next = stack;
+	while (next)
+	{
+		stack = next;
+		next = stack->next;
+		free(stack);
+	}
+}
 
 int is_int(char *str)
 {
