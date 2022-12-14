@@ -55,8 +55,8 @@ instruction_t *get_function(char *line)
 
 	if (func->opcode)
 	{
-		if (strcmp(func->opcode, "push") == 0)
-			func->f = _push;
+		/*if (strcmp(func->opcode, "push") == 0)*/
+			/*func->f = _push;*/
 		if (strcmp(func->opcode, "pall") == 0)
 			func->f = _pall;
 		if (strcmp(func->opcode, "pint") == 0)
