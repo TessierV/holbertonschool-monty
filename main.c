@@ -5,6 +5,7 @@
  * @argv: char
  * Return: 0
  */
+
 int main(int argc, char **argv)
 {
 	unsigned int line_number = 0;
@@ -16,13 +17,13 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
+		fprintf(stdout, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file_in = fopen(argv[2], "r");
+	file_in = fopen(argv[1], "r");
 	if (!file_in)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &linesize_t, file_in) != -1)
@@ -32,7 +33,7 @@ int main(int argc, char **argv)
 		func->f(&stack, line_number);
 		if (!func)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, func->opcode);
+			fprintf(stdout, "L%d: unknown instruction %s\n", line_number, func->opcode);
 			exit(EXIT_FAILURE);
 		}
 	}
