@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	file_in = fopen(argv[2], "r");
 	if (!file_in)
 	{
-		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &linesize_t, file_in) != -1)
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 		func->f(&stack, line_number);
 		if (!func)
 		{
-			fprintf(stdout, "L%d: unknown instruction %s\n", line_number, func->opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, func->opcode);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -55,15 +55,18 @@ instruction_t *get_function(char *line)
 
 	if (func->opcode)
 	{
-		/*if (strcmp(func->opcode, "push") == 0)	 func->f = _push;*/
+		if (strcmp(func->opcode, "push") == 0)
+			func->f = _push;
 		if (strcmp(func->opcode, "pall") == 0)
 			func->f = _pall;
 		if (strcmp(func->opcode, "pint") == 0)
 			func->f = _pint;
 		if (strcmp(func->opcode, "pop") == 0)
 			func->f = _pop;
-		/*if (strcmp(func->opcode, "swap") == 0)	func->f = _swap;*/
-		/*if (strcmp(func->opcode, "add") == 0)		func->f = _add;*/
+		if (strcmp(func->opcode, "swap") == 0)
+			func->f = _swap;
+		if (strcmp(func->opcode, "add") == 0)
+			func->f = _add;
 		if (strcmp(func->opcode, "nop") == 0)
 			func->f = _nop;
 	}
