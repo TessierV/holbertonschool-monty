@@ -31,14 +31,35 @@ int main(int argc, char **argv)
 	{
 		line_number++;
 		func = get_function(line);
+		if ((func->opcode) == NULL)
+		{
+			free(func);
+			if (line)
+				free(line);
+			line = NULL;
+			continue;
+		}
 		if (func->f)
 			func->f(&stack, line_number);
 		else
 		{
 			fprintf(stdout, "L%d: unknown instruction %s\n", line_number, func->opcode);
+			if (line)
+				free(line);
+			if (stack)
+				free_t(stack);
+			free(func);
+			fclose(file_in);
 			exit(EXIT_FAILURE);
 		}
+		if (line)
+			free(line);
+		line = NULL;
+		free(func);
 	}
+	if (line)
+		free(line);
+	free_t(stack);
 	fclose(file_in);
 	return (0);
 }
