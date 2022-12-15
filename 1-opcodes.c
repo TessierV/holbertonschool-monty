@@ -24,10 +24,11 @@ void _pint(stack_t **stack, unsigned int line_number)
  * @line_number: current line number
  */
 
- void _pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
+	stack_t *tmp;/* = *stack;*/
 	(void) line_number;
+	tmp = *stack;
 	/*while (stack && tmp)*/
 	while (tmp != NULL)
 	{

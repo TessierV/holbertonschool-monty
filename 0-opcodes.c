@@ -5,7 +5,6 @@ void free_t(stack_t *stack)
 
 	if (!stack)
 		return;
-
 	next = stack;
 	while (next)
 	{
