@@ -1,5 +1,6 @@
 #include "monty.h"
 int ARG = 1;
+
 /**
  * main - main function
  * @argc: int
@@ -18,8 +19,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		fprintf(stdout, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		fprintf(stdout, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	}
 	file_in = fopen(argv[1], "r");
 	if (file_in == NULL)
@@ -63,6 +63,7 @@ int main(int argc, char **argv)
 	fclose(file_in);
 	return (0);
 }
+
 /**
  * get_function - search the function
  * @line: char
@@ -72,7 +73,6 @@ instruction_t *get_function(char *line)
 {
 	char *opcode;
 	instruction_t *func;
-
 	opcode = strtok(line, " \n\t\r");
 	func = malloc(sizeof(*func));
 	if (func == NULL)
