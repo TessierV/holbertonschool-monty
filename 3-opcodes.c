@@ -15,7 +15,6 @@ void _swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_t(*stack);
-
 		exit(EXIT_FAILURE);
 	}
 	swp = (*stack)->n;
@@ -23,7 +22,6 @@ void _swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_t(*stack);
-
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->n = ((*stack)->next)->n;
