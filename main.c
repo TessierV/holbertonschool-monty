@@ -7,14 +7,14 @@ int ARG = 1;
  * Return: 0
  */
 int main(int argc, char **argv)
-{
-	unsigned int line_number = 0;
+{unsigned int line_number = 0;
 	char *line = NULL;
 	FILE *file_in;
 	size_t linesize_t = 0;
 	stack_t *stack = NULL;
 	instruction_t *func = NULL;
 	if (argc != 2)
+
 	{fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE); }
 	file_in = fopen(argv[1], "r");
 	if (file_in == NULL)
@@ -48,5 +48,4 @@ exit(EXIT_FAILURE); }
 		free(line);
 	free_t(stack);
 	fclose(file_in);
-	return (0);
-}
+	return (0); }
