@@ -1,4 +1,8 @@
 #include "monty.h"
+/**
+ *free_t - free_t
+ *@stack: stack
+ */
 void free_t(stack_t *stack)
 {
 	stack_t *next;
@@ -13,7 +17,11 @@ void free_t(stack_t *stack)
 		free(stack);
 	}
 }
-
+/**
+ *is_int - is_int
+ *@str:str
+ *Return: void
+*/
 int is_int(char *str)
 {
 	int i = 0;
