@@ -8,15 +8,13 @@ int ARG = 1;
  * Return: 0
  */
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
 	unsigned int line_number = 0;
 	char *line = NULL;
 	FILE *file_in;
 	size_t linesize_t = 0;
 	stack_t *stack = NULL;
 	instruction_t *func = NULL;
-
 	if (argc != 2){
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	}
