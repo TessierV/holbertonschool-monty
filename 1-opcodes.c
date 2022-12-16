@@ -1,8 +1,6 @@
 #include "monty.h"
-
 /**
  * _pint - print the value at the top of the stack
- *
  * @stack: the stack
  * @line_number: the line number
  */
@@ -36,4 +34,3 @@ void _pall(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 }
-
