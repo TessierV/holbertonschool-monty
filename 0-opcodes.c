@@ -40,7 +40,7 @@ int is_int(char *str)
 /**
  *_push - _push
  *@stack: satck
- *@lin_number:line_number
+ *@line_number:line_number
 */
 void _push(stack_t **stack, unsigned int line_number)
 {
