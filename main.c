@@ -15,11 +15,11 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 	instruction_t *func = NULL;
 	if (argc != 2)
-	{fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);}
+	{fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE); }
 	file_in = fopen(argv[1], "r");
 	if (file_in == NULL)
 	{fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-exit(EXIT_FAILURE);}
+exit(EXIT_FAILURE); }
 	while (getline(&line, &linesize_t, file_in) != -1)
 	{line_number++;
 		func = get_function(line);
@@ -28,7 +28,7 @@ exit(EXIT_FAILURE);}
 			if (line)
 				free(line);
 			line = NULL;
-			continue;}
+			continue; }
 		if (func->f)
 			func->f(&stack, line_number);
 		else
@@ -39,12 +39,11 @@ exit(EXIT_FAILURE);}
 				free_t(stack);
 			free(func);
 			fclose(file_in);
-			exit(EXIT_FAILURE);}
+			exit(EXIT_FAILURE); }
 		if (line)
 			free(line);
 		line = NULL;
-		free(func);
-	}
+		free(func); }
 	if (line)
 		free(line);
 	free_t(stack);
