@@ -37,14 +37,11 @@ int is_int(char *str)
 	}
 	return (1);
 }
-
 /**
- * push - pushes an element to the stack.
- * @stack: the stack
- * @line_number: the current line number
- *
- * Return: void
- */
+ *_push - _push
+ *@stack: satck
+ *@lin_number:line_number
+*/
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new, *tmp;
@@ -58,7 +55,6 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 	pVal = atoi(push_arg);
 	new = malloc(sizeof(stack_t));
-	
 	if (new == NULL)
 	{
 		fprintf(stdout, "Error: malloc failed\n");
