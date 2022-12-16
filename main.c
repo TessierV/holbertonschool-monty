@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	size_t linesize_t = 0;
 	stack_t *stack = NULL;
 	instruction_t *func = NULL;
-	
+
 	if (argc != 2)
 	{fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE); }
 	file_in = fopen(argv[1], "r");
