@@ -9,9 +9,7 @@ instruction_t *get_function(char *line)
 {
 	char *opcode;
 	instruction_t *func;
-
 	opcode = strtok(line, " \n\t\r");
-    
 	func = malloc(sizeof(*func));
 	if (func == NULL)
 	{

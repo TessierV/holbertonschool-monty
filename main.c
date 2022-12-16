@@ -1,13 +1,11 @@
 #include "monty.h"
 int ARG = 1;
-
 /**
  * main - main function
  * @argc: int
  * @argv: char
  * Return: 0
  */
-
 int main(int argc, char **argv)
 {
 	unsigned int line_number = 0;
